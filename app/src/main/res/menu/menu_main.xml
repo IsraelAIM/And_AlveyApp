@@ -14,6 +14,7 @@
         app:actionLayout="@layout/switch_item"
         app:showAsAction="always" />
     <item
+        android:id="@+id/iNuevo"
         android:icon="@drawable/icono_nuevo"
         android:title="iNuevo"
         app:showAsAction="always" />

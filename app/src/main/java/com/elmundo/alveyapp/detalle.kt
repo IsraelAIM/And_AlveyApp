@@ -11,9 +11,9 @@ class detalle : AppCompatActivity() {
         setContentView(R.layout.activity_detalle)
         val toolbar=findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
+
+        val actionBar=supportActionBar
+        actionBar?.setDisplayHomeAsUpEnabled(true);
     }
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_main,menu)
-        return super.onCreateOptionsMenu(menu)
-    }
+
 }
