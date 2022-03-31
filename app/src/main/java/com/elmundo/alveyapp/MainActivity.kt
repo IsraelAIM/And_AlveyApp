@@ -3,7 +3,6 @@ package com.elmundo.alveyapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.telecom.Call
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.ListView
@@ -46,7 +45,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item?.itemId) {
             R.id.iNuevo -> {
-                val intent = Intent(this, detalle::class.java)
+                val intent = Intent(this, NuevoContact::class.java)
                 startActivity(intent)
                 return true
             }

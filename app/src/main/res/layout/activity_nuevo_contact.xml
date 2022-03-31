@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Detalle">
+    tools:context=".NuevoContact">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -33,16 +33,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="601dp">
 
-                <TextView
+                <EditText
                     android:id="@+id/dEmpresa"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="76dp"
+                    android:layout_marginTop="88dp"
+                    android:hint="Empresa"
+                    android:minHeight="48dp"
                     android:text="Halus"
                     android:textAlignment="center"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintHorizontal_bias="0.482"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/dFoto" />
 
@@ -57,30 +59,47 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/foto_04" />
 
-                <TextView
+                <EditText
                     android:id="@+id/dNombre"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="44dp"
                     android:layout_marginTop="20dp"
-                    android:text="Liz Ada Chan"
+                    android:hint="Nombre"
+                    android:text="Liz"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/dFoto" />
+
+                <EditText
+                    android:id="@+id/dApellidos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+
+                    android:layout_marginTop="20dp"
+
+                    android:hint="Apellidos"
+                    android:inputType="textPersonName"
+                    android:text="Itza Mendez"
                     android:textAlignment="center"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/dNombre"
                     app:layout_constraintTop_toBottomOf="@+id/dFoto" />
 
                 <TextView
                     android:id="@+id/textView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="116dp"
-                    android:text="Edad"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/text"
                     android:textAlignment="center"
                     app:layout_constraintEnd_toStartOf="@+id/textView4"
-                    app:layout_constraintHorizontal_bias="0.522"
+                    app:layout_constraintHorizontal_bias="0.56"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/dFoto" />
+                    app:layout_constraintTop_toBottomOf="@+id/dNombre" />
 
                 <TextView
                     android:id="@+id/textView4"
@@ -89,57 +108,65 @@
                     android:layout_marginTop="20dp"
                     android:text="Peso"
                     android:textAlignment="center"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/dTelefono"
+                    app:layout_constraintHorizontal_bias="0.602"
+                    app:layout_constraintStart_toEndOf="@+id/dEdad"
                     app:layout_constraintTop_toBottomOf="@+id/dEmpresa" />
 
                 <TextView
                     android:id="@+id/textView5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="116dp"
+                    android:layout_marginTop="16dp"
                     android:text="Telefono"
                     android:textAlignment="center"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.503"
+                    app:layout_constraintHorizontal_bias="0.496"
                     app:layout_constraintStart_toEndOf="@+id/textView4"
-                    app:layout_constraintTop_toBottomOf="@+id/dFoto" />
+                    app:layout_constraintTop_toBottomOf="@+id/dApellidos" />
 
-                <TextView
+                <EditText
                     android:id="@+id/dTelefono"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="56dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="32dp"
+                    android:hint="Número telefonico"
+                    android:minHeight="48dp"
                     android:text="9837008147"
                     android:textAlignment="center"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
-                <TextView
+                <EditText
                     android:id="@+id/dEdad"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="88dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="10dp"
+                    android:hint="Edad"
+                    android:minWidth="48dp"
+                    android:minHeight="48dp"
                     android:text="24"
                     android:textAlignment="center"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
-                <TextView
+                <EditText
                     android:id="@+id/dPeso"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="8dp"
+                    android:hint="Peso"
+                    android:minWidth="48dp"
+                    android:minHeight="48dp"
                     android:text="52.5"
                     android:textAlignment="center"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                     app:layout_constraintEnd_toStartOf="@+id/dTelefono"
-                    app:layout_constraintHorizontal_bias="0.622"
+                    app:layout_constraintHorizontal_bias="0.625"
                     app:layout_constraintStart_toEndOf="@+id/dEdad"
                     app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
@@ -165,32 +192,39 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/dTelefono" />
 
-                <TextView
+                <EditText
                     android:id="@+id/dDireccion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="16dp"
+                    android:hint="Colonia/Calle/Ciudad"
+                    android:minHeight="48dp"
                     android:text="Rojo Gomez, Calle 74x41"
                     android:textAlignment="center"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
-                <TextView
+                <EditText
                     android:id="@+id/dEmail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="12dp"
+                    android:hint="Correo Electronico"
+                    android:minHeight="48dp"
                     android:text="LizEdad12@gmail.com"
                     android:textAlignment="center"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
     </ScrollView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
