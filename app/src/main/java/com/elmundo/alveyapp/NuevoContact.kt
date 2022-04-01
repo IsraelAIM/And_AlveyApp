@@ -1,16 +1,23 @@
 package com.elmundo.alveyapp
 
 import android.content.Intent
+import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ArrayAdapter
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.Toolbar
 
 class NuevoContact : AppCompatActivity() {
+    var foto:ImageView?=null
+    var fotoIndex:Int=0
+    val fotos= arrayOf(R.drawable.foto_01,R.drawable.foto_02,R.drawable.foto_03,R.drawable.foto_04,R.drawable.foto_05,R.drawable.foto_06)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_nuevo_contact)
@@ -20,6 +27,13 @@ class NuevoContact : AppCompatActivity() {
         //Carga la opción de retroceso
         val actionBar = supportActionBar
         actionBar?.setDisplayHomeAsUpEnabled(true);
+
+        foto=findViewById<ImageView>(R.id.dFoto)
+        foto?.setOnClickListener(){
+            seleccionarFoto()
+        }
+
+
     }
 
     //CREA EL MENU
@@ -32,6 +46,7 @@ class NuevoContact : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item?.itemId) {
             R.id.iCrearNuevo -> {
+
                 //ZONA DE VARIABLES
                 var campos = ArrayList<String>()
                 var flag = 0
@@ -73,7 +88,7 @@ class NuevoContact : AppCompatActivity() {
                             campos.get(4),
                             campos.get(5),
                             campos.get(6).toInt(),
-                            R.drawable.foto_01,
+                           obtenerFoto(fotoIndex),
                             campos.get(7).toFloat()
                         )
                     )
@@ -88,4 +103,32 @@ class NuevoContact : AppCompatActivity() {
         }
 
     }
+    fun seleccionarFoto(){
+        val builder=AlertDialog.Builder(this)
+        builder.setTitle("Seleccionar imagen para perfil :D")
+        val adaptadorDialogo=ArrayAdapter<String>(this,android.R.layout.simple_selectable_list_item)
+        adaptadorDialogo.add("Foto 01")
+        adaptadorDialogo.add("Foto 02")
+        adaptadorDialogo.add("Foto 03")
+        adaptadorDialogo.add("Foto 04")
+        adaptadorDialogo.add("Foto 05")
+        adaptadorDialogo.add("Foto 06")
+        builder.setAdapter(adaptadorDialogo){
+                dialog,which->
+            fotoIndex=which
+            foto?.setImageResource(obtenerFoto(fotoIndex))
+
+        }
+        builder.setNegativeButton("Cancelar"){
+                dialog,which->
+
+
+            dialog.dismiss()
+        }
+        builder.show()
+    }
+    fun obtenerFoto(index:Int):Int{
+        return fotos.get(index)
+    }
+
 }
