@@ -9,15 +9,22 @@ import android.widget.ListView
 import androidx.appcompat.widget.Toolbar
 
 class MainActivity : AppCompatActivity() {
-    var lista:ListView?=null
-    var Adaptador:AdaptusList?=null
+    var lista: ListView? = null
+    var Adaptador: AdaptusList? = null
+
     companion object {
         var contactos: ArrayList<Contacto>? = null
 
         fun agregarContacto(contacto: Contacto) {
             contactos?.add(contacto)
         }
+
+
+        fun obtenerContacto(index:Int):Contacto{
+            return contactos?.get(index)!!
+        }
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -43,7 +50,14 @@ class MainActivity : AppCompatActivity() {
         Adaptador = AdaptusList(this, contactos!!)
         lista?.adapter = Adaptador
 
+        lista?.setOnItemClickListener { parent, view, position, id ->
+            val intent=Intent(this,Detalle::class.java)
+            intent.putExtra("ID",position.toString())
+            startActivity(intent)
+        }
+
     }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
         return super.onCreateOptionsMenu(menu)
@@ -56,7 +70,9 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
                 return true
             }
-            else -> { return super.onOptionsItemSelected(item) }
+            else -> {
+                return super.onOptionsItemSelected(item)
+            }
         }
     }
 
@@ -64,4 +80,5 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
         Adaptador?.notifyDataSetChanged()
     }
+
 }
